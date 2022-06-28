@@ -12,10 +12,19 @@ class DisableBatteryOptimization {
         'showEnableAutoStart', <dynamic>[dialogTitle, dialogBody]);
   }
 
+  static Future<bool?> openEnableAutoStartSettings() async {
+    return await _channel.invokeMethod('showEnableAutoStart');
+  }
+
   static Future<bool?> showDisableManufacturerBatteryOptimizationSettings(
       String dialogTitle, String dialogBody) async {
     return await _channel.invokeMethod('showDisableManBatteryOptimization',
         <dynamic>[dialogTitle, dialogBody]);
+  }
+
+  static Future<bool?>
+      openDisableManufacturerBatteryOptimizationSettings() async {
+    return await _channel.invokeMethod('showDisableManBatteryOptimization');
   }
 
   static Future<bool?> showDisableBatteryOptimizationSettings() async {

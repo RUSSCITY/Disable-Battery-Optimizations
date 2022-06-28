@@ -85,8 +85,8 @@ public class DisableBatteryOptimizationPlugin implements FlutterPlugin, Activity
                         showAutoStartEnabler(() -> setManAutoStart(true), () -> setManAutoStart(false));
                         result.success(true);
                     } else {
-                        Log.e(TAG, "Unable to request enableAutoStart. Arguments are null");
-                        result.success(false);
+                        KillerManager.doAction(mContext != null ? mContext : mActivity, KillerManager.Actions.ACTION_AUTOSTART);
+                        result.success(true);
                     }
                 } catch (Exception ex) {
                     Log.e(TAG, "Exception in showEnableAutoStart. " + ex.toString());
@@ -102,8 +102,8 @@ public class DisableBatteryOptimizationPlugin implements FlutterPlugin, Activity
                         showManBatteryOptimizationDisabler(false);
                         result.success(true);
                     } else {
-                        Log.e(TAG, "Unable to request disable manufacturer battery optimization. Arguments are null");
-                        result.success(false);
+                        KillerManager.doAction(mContext != null ? mContext : mActivity, KillerManager.Actions.ACTION_POWERSAVING);
+                        result.success(true);
                     }
                 } catch (Exception ex) {
                     Log.e(TAG, "Exception in showDisableManBatteryOptimization. " + ex.toString());
