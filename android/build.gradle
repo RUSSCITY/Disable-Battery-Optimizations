@@ -24,6 +24,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'in.jvapps.disable_battery_optimization'
     compileSdkVersion 31
     defaultConfig {
         minSdkVersion 21
